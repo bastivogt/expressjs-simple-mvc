@@ -27,7 +27,6 @@ server.set("view engine", "ejs");
 server.set("views", "./views");
 
 // routes
-//server.use(router);
 server.use("/admin", adminRouter);
 server.use(frontendRouter);
 
