@@ -1,6 +1,10 @@
 <h1><%= title %></h1>
+<% if (people.length !== 0) { %>
 <ul>
     <% people.forEach(item => { %>
     <li><a href="/person/<%= item.id %>"><%= item.firstname %></a></li>
     <% }) %>
 </ul>
+<% } else { %>
+<p>No people found!</p>
+<% } %>
