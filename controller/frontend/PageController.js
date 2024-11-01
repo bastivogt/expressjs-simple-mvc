@@ -1,5 +1,4 @@
 const settings = require("./../../settings");
-const PeopleModel = require("../../models/PeopleModel");
 
 const PageController = {
     index(req, res) {
