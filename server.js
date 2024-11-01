@@ -3,14 +3,10 @@ const { name } = require("ejs");
 const express = require("express");
 const ejsLayouts = require("express-ejs-layouts");
 
-const settings = require("./settings");
 const logger = require("./middleware/requestLogger");
-const router = require("./routes");
 
 const frontendRouter = require("./routes/frontend");
 const adminRouter = require("./routes/admin");
-
-console.log(logger.requestLogger);
 
 const server = express();
 const PORT = 3000;
