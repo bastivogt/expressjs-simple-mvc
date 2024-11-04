@@ -1,19 +1,18 @@
-const express = require("express");
+const Route = require("../sevo/routes/Route");
+const RoutesManager = require("../sevo/routes/RoutesManager");
 
-const PageController = require("./../controller/admin/PageController");
-const PersonController = require("../controller/admin/PersonController");
+const PageController = require("./../controller/PageController");
+const PersonController = require("../controller/PersonController");
 
-const router = express.Router();
 
-// router.get("/", (req, res) => {
-//     res.render("./admin/index", {
-//         layout: "./admin/layouts/default",
-//         title: "Admin index",
-//     });
-// });
 
-router.get("/", PageController.index);
-router.get("/person/create", PersonController.create);
-router.post("/person/create", PersonController.create);
 
-module.exports = router;
+const rm = new RoutesManager();
+
+rm.addRoute(new Route("admin:index", "/admin", "get", PageController.adminIndex_get));
+rm.addRoute(new Route("admin:person:create:get", "/admin/person/create", "get", PersonController.adminCreate_get));
+rm.addRoute(new Route("admin:person:create:post", "/admin/person/create", "post", PersonController.adminCeate_post));
+
+rm.createRouter();
+
+module.exports = rm;

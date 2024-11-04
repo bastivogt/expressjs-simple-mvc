@@ -1,0 +1,19 @@
+<%- include("../include/_head") %>
+<h1><%= locals.title %></h1>
+<div>
+    <strong>Firstname: </strong>
+    <%= locals.person.firstname %>
+</div>
+<div>
+    <strong>Lastname: </strong>
+    <%= locals.person.lastname %>
+</div>
+<div>
+    <strong>Birthday: </strong>
+    <%= locals.person.birthday %>
+</div>
+
+<br>
+<br>
+<a href="<%= url("people:index") %>">Back to people</a>
+<%- include("../include/_footer") %>

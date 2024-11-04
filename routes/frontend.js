@@ -1,13 +1,13 @@
-const express = require("express");
+const Route = require("../sevo/routes/Route");
+const RoutesManager = require("../sevo/routes/RoutesManager");
 
 const settings = require("./../settings");
 
-const PageController = require("../controller/frontend/PageController");
+const PageController = require("../controller/PageController");
 //const PeopleController = require("../controller/frontend/PeopleController");
-const PersonController = require("../controller/frontend/PersonController");
+const PersonController = require("../controller/PersonController");
 
 
-const router = express.Router();
 
 // GET /
 
@@ -26,12 +26,27 @@ const router = express.Router();
 //     });
 // });
 
-router.get("/kontakt", PageController.kontakt);
-router.get("/impressum", PageController.impressum);
-// router.get("/people", PeopleController.index);
-// router.get("/person/:id", PeopleController.single);
-router.get("/people", PersonController.index);
-router.get("/person/:id", PersonController.single);
-router.get("/", PageController.index);
+// router.get("/kontakt", PageController.getKontakt);
+// router.get("/impressum", PageController.getImpressum);
+// // router.get("/people", PeopleController.index);
+// // router.get("/person/:id", PeopleController.single);
+// router.get("/people", PersonController.getIndex);
+// router.get("/person/:id", PersonController.getDetail);
 
-module.exports = router;
+// router.get("/", PageController.getIndex);
+
+//module.exports = router;
+
+
+const rm = new RoutesManager();
+
+rm.addRoute(new Route("page:kontakt", "/kontakt", "get", PageController.kontakt_get));
+rm.addRoute(new Route("page:impressum", "/impressum", "get", PageController.impressum_get));
+rm.addRoute(new Route("people:index", "/people", "get", PersonController.index_get));
+rm.addRoute(new Route("person:detail", "/person/:id", "get", PersonController.detail_get));
+rm.addRoute(new Route("page:index", "/", "get", PageController.index_get));
+
+rm.createRouter();
+
+
+module.exports = rm;
