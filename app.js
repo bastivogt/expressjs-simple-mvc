@@ -1,9 +1,8 @@
 // imports
-const { name } = require("ejs");
+//const { name } = require("ejs");
 const express = require("express");
 
 const bodyParser = require("body-parser");
-
 
 const logger = require("./middleware/requestLogger");
 
@@ -12,15 +11,13 @@ const adminRoutesManager = require("./routes/admin");
 const frontendRoutesManager = require("./routes/frontend");
 const RouteHelper = require("./sevo/helper/RouteHelper");
 
-
-
 const server = express();
 const PORT = 3000;
 const HOST = "http://localhost";
 
 // Middleware
 server.use(express.static("public"));
-server.use(bodyParser.urlencoded({extended: true}))
+server.use(bodyParser.urlencoded({ extended: true }));
 // custom
 server.use(logger.requestLogger);
 
@@ -44,7 +41,6 @@ server.use((req, res) => {
 
 // <%= url("person:detail", 3) %>
 server.locals.url = RouteHelper.url;
-
 
 console.log(server.locals.url("page:kontakt"));
 console.log(server.locals.url("person:detail", 5));
