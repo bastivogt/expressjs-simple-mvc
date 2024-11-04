@@ -7,8 +7,6 @@ const PageController = require("../controller/PageController");
 //const PeopleController = require("../controller/frontend/PeopleController");
 const PersonController = require("../controller/PersonController");
 
-
-
 // GET /
 
 // router.get("/kontakt", (req, res) => {
@@ -37,16 +35,32 @@ const PersonController = require("../controller/PersonController");
 
 //module.exports = router;
 
+const rm = RoutesManager.initialize();
 
-const rm = new RoutesManager();
-
-rm.addRoute(new Route("page:kontakt", "/kontakt", "get", PageController.kontakt_get));
-rm.addRoute(new Route("page:impressum", "/impressum", "get", PageController.impressum_get));
-rm.addRoute(new Route("people:index", "/people", "get", PersonController.index_get));
-rm.addRoute(new Route("person:detail", "/person/:id", "get", PersonController.detail_get));
+rm.addRoute(
+    new Route("page:kontakt", "/kontakt", "get", PageController.kontakt_get)
+);
+rm.addRoute(
+    new Route(
+        "page:impressum",
+        "/impressum",
+        "get",
+        PageController.impressum_get
+    )
+);
+rm.addRoute(
+    new Route("people:index", "/people", "get", PersonController.index_get)
+);
+rm.addRoute(
+    new Route(
+        "person:detail",
+        "/person/:id",
+        "get",
+        PersonController.detail_get
+    )
+);
 rm.addRoute(new Route("page:index", "/", "get", PageController.index_get));
 
 rm.createRouter();
-
 
 module.exports = rm;
