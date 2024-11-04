@@ -1,7 +1,7 @@
 // imports
 const { name } = require("ejs");
 const express = require("express");
-const ejsLayouts = require("express-ejs-layouts");
+
 
 const logger = require("./middleware/requestLogger");
 
@@ -17,9 +17,6 @@ server.use(express.static("public"));
 // custom
 server.use(logger.requestLogger);
 
-// layouts
-server.use(ejsLayouts);
-server.set("layout", "./frontend/layouts/default");
 // template engine
 // npm i ejs
 server.set("view engine", "ejs");

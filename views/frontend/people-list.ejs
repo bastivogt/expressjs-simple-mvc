@@ -1,0 +1,12 @@
+<%- include("include/_head") %>
+<h1><%= locals.title %></h1>
+<% if (people.length > 0) { %>
+<ul>
+    <% people.forEach(person => { %>
+        <li>
+            <a href="/person/<%= person.id %>"><%= person.firstname %></a>
+        </li>
+    <% }) %>
+</ul>
+<% } %>
+<%- include("include/_footer") %>

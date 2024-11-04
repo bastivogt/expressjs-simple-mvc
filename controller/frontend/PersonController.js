@@ -8,7 +8,7 @@ const PersonController = {
             },
         });
         console.log("people", people);
-        res.render("frontend/person/index", {
+        res.render("frontend/people-list", {
             title: "People",
             people: people,
         });
@@ -29,7 +29,7 @@ const PersonController = {
             },
         });
         if (person) {
-            return res.render("frontend/person/single", {
+            return res.render("frontend/person-detail", {
                 title: `${person.firstname} ${person.lastname}`,
                 person: person,
             });
