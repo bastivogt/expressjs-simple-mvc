@@ -1,0 +1,20 @@
+<%- include("../include/_head") %>
+<h1><%= locals.title %></h1>
+
+<form action="" method="post">
+    <div>
+        <label for="firstname">Firstname</label>
+        <input type="text" name="firstname" id="firstname" required>
+    </div>
+    <div>
+        <label for="lastname">Lastname</label>
+        <input type="text" name="lastname" id="lastname" required>
+    </div>
+    <div>
+        <label for="lastname">Birthday</label>
+        <input type="date" name="birthday" id="birthday" required>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<%- include("../include/_footer") %>

@@ -2,6 +2,8 @@
 const { name } = require("ejs");
 const express = require("express");
 
+const bodyParser = require("body-parser");
+
 
 const logger = require("./middleware/requestLogger");
 
@@ -14,6 +16,7 @@ const HOST = "http://localhost";
 
 // Middleware
 server.use(express.static("public"));
+server.use(bodyParser.urlencoded())
 // custom
 server.use(logger.requestLogger);
 

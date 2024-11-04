@@ -1,6 +1,7 @@
 const express = require("express");
 
 const PageController = require("./../controller/admin/PageController");
+const PersonController = require("../controller/admin/PersonController");
 
 const router = express.Router();
 
@@ -12,5 +13,7 @@ const router = express.Router();
 // });
 
 router.get("/", PageController.index);
+router.get("/person/create", PersonController.create);
+router.post("/person/create", PersonController.create);
 
 module.exports = router;
